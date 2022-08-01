@@ -1,3 +1,6 @@
+const { v4: uuidv4 } = require('uuid');
+let dateUtils = require("../utils/date.utils")
+
 const PlayerService = () => {}
 
 let playerRepository = require("../repository/player.repository")
@@ -11,15 +14,30 @@ PlayerService.getById = (playerId) => {
 }
 
 PlayerService.create = (player) => {
+    player.playerId = uuidv4();
+    player.createdAt = dateUtils.now();
+    player.updatedAt = player.createdAt;
+    player.status = true;
+
     return playerRepository.create(player) 
 }
 
-PlayerService.edit = (playerId, player) => {
+PlayerService.edit = async (playerId, player) => {
+    player.updatedAt = dateUtils.now();
+
+    let oldPlayer = await PlayerService.getById(playerId);
+    player.playerId = oldPlayer.playerId;
+    player.createdAt = oldPlayer.createdAt;
+    player.status = oldPlayer.status;
+
     return playerRepository.edit(playerId, player)
 }
 
-PlayerService.delete = (playerId) => {
-    return playerRepository.delete(playerId)
+PlayerService.delete = async (playerId) => {
+    let oldPlayer = await PlayerService.getById(playerId);
+    oldPlayer.status = false;
+
+    return playerRepository.delete(playerId, oldPlayer)
 }
 
 module.exports = PlayerService

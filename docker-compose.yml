@@ -8,6 +8,8 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql # it will be executed on mysql first run
 
   adminer:
     image: adminer

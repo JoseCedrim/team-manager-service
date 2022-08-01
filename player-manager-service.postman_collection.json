@@ -1,0 +1,876 @@
+{
+	"info": {
+		"_postman_id": "0b6d8219-c480-4fda-a1ce-84ccb4853a24",
+		"name": "player-manager-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2863340"
+	},
+	"item": [
+		{
+			"name": "teams",
+			"item": [
+				{
+					"name": "/teams",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/teams",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/teams",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"teams"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "/teams/:teamId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n    \"name\": \"Vasco da Gama\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"RJ\",\n    \"status\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/teams/:teamId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams",
+								":teamId"
+							],
+							"variable": [
+								{
+									"key": "teamId",
+									"value": "e8c50de5-0fd6-11ed-9a6d-0242ac120003"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/teams/:teamId",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n    \"name\": \"Vasco da Gama\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"RJ\",\n    \"status\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/teams/:teamId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"teams",
+										":teamId"
+									],
+									"variable": [
+										{
+											"key": "teamId",
+											"value": "e8c50de5-0fd6-11ed-9a6d-0242ac120003"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "/teams/:teamId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/teams/:teamId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams",
+								":teamId"
+							],
+							"variable": [
+								{
+									"key": "teamId",
+									"value": "2a90cb87-56fe-483e-98a9-9e108cf07381"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/teams/:teamId",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/teams/:teamId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"teams",
+										":teamId"
+									],
+									"variable": [
+										{
+											"key": "teamId",
+											"value": "2a90cb87-56fe-483e-98a9-9e108cf07381"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "229"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e5-sIYxvYcM6zB2O+KUnhc4oziJqHI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:58:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teamId\": \"2a90cb87-56fe-483e-98a9-9e108cf07381\",\n    \"name\": \"São Paulo Editado\",\n    \"inaugurationDate\": \"2022-01-02T03:00:00.000Z\",\n    \"state\": \"AC\",\n    \"createdAt\": \"2022-08-01T03:00:00.000Z\",\n    \"updatedAt\": \"2022-08-01T07:15:02.000Z\",\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "/teams",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/teams",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/teams",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"teams"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "876"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36c-qNcNhiBZ+5FWlDKRKnTbw1sSfJc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:59:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"teamId\": \"3211a5a0-4eec-4c59-84ed-59a7b167125d\",\n        \"name\": \"São Paulo\",\n        \"inaugurationDate\": \"2022-01-01T03:00:00.000Z\",\n        \"state\": \"SP\",\n        \"createdAt\": \"2022-08-01T03:00:00.000Z\",\n        \"updatedAt\": \"2022-08-01T03:00:00.000Z\",\n        \"status\": 1\n    },\n    {\n        \"teamId\": \"a1d85fcd-9d9b-487b-80ea-eb5708c7d51e\",\n        \"name\": \"São Paulo\",\n        \"inaugurationDate\": \"2022-01-01T03:00:00.000Z\",\n        \"state\": \"SP\",\n        \"createdAt\": \"2022-08-01T03:00:00.000Z\",\n        \"updatedAt\": \"2022-08-01T03:00:00.000Z\",\n        \"status\": 1\n    },\n    {\n        \"teamId\": \"d1d1bb2a-efba-4437-ba13-f2b4212847ff\",\n        \"name\": \"São Paulo\",\n        \"inaugurationDate\": \"2022-01-01T03:00:00.000Z\",\n        \"state\": \"SP\",\n        \"createdAt\": \"2022-08-01T03:00:00.000Z\",\n        \"updatedAt\": \"2022-08-01T03:00:00.000Z\",\n        \"status\": 1\n    },\n    {\n        \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n        \"name\": \"Vasco da Gama\",\n        \"inaugurationDate\": \"2022-01-01T03:00:00.000Z\",\n        \"state\": \"RJ\",\n        \"createdAt\": \"2022-07-30T10:12:02.000Z\",\n        \"updatedAt\": \"2022-08-01T07:29:12.000Z\",\n        \"status\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/teams/:teamId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/teams/:teamId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams",
+								":teamId"
+							],
+							"variable": [
+								{
+									"key": "teamId",
+									"value": "e8c50de5-0fd6-11ed-9a6d-0242ac120003"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/teams/:teamId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/teams/:teamId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"teams",
+										":teamId"
+									],
+									"variable": [
+										{
+											"key": "teamId",
+											"value": "e8c50de5-0fd6-11ed-9a6d-0242ac120003"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "220"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dc-mZ39HqsggZL1/Tw3LZq7QqLoqfw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:59:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n    \"name\": \"Vasco da Gama\",\n    \"inaugurationDate\": \"2022-01-01T03:00:00.000Z\",\n    \"state\": \"RJ\",\n    \"createdAt\": \"2022-07-30T10:12:02.000Z\",\n    \"updatedAt\": \"2022-08-01T07:29:12.000Z\",\n    \"status\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "players",
+			"item": [
+				{
+					"name": "/players",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"José\",\n    \"position\": \"Meio de campo\",\n    \"height\": 1.78,\n    \"weight\": 75,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/players",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"players"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/players",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"José\",\n    \"position\": \"Meio de campo\",\n    \"height\": 1.78,\n    \"weight\": 75,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/players",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"players"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f9-db5djCB6RXhDArKhjK9PvVi3p6Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:53:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"playerId\": \"49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c\",\n    \"name\": \"José\",\n    \"position\": \"Meio de campo\",\n    \"height\": 1.78,\n    \"weight\": 75,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n    \"createdAt\": \"2022-08-01 04:53:16\",\n    \"updatedAt\": \"2022-08-01 04:53:16\",\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "/players",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/players",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"players"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/players",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/players",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"players"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "258"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"102-ZFRj1FFjsUTI1yH/NrQA1Kz/k8Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:59:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"playerId\": \"2453b324-4dcf-4db8-9ebc-27d2f86775a4\",\n        \"name\": \"José\",\n        \"position\": \"Meio de campo\",\n        \"height\": 1.78,\n        \"weight\": 75,\n        \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n        \"createdAt\": \"2022-08-01T07:59:28.000Z\",\n        \"updatedAt\": \"2022-08-01T07:59:28.000Z\",\n        \"status\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/players/:playerId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/players/:playerId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"players",
+								":playerId"
+							],
+							"variable": [
+								{
+									"key": "playerId",
+									"value": "49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/players/:playerId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"São Paulo\",\n    \"inaugurationDate\": \"2022-01-01\",\n    \"state\": \"SP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/players/:playerId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"players",
+										":playerId"
+									],
+									"variable": [
+										{
+											"key": "playerId",
+											"value": "49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "253"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fd-NGX+J22pi1X50U31D/GLfT4Y6rY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:55:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"playerId\": \"49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c\",\n    \"name\": \"José\",\n    \"position\": \"Meio de campo\",\n    \"height\": 2,\n    \"weight\": 75,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n    \"createdAt\": \"2022-08-01T07:53:16.000Z\",\n    \"updatedAt\": \"2022-08-01T07:53:16.000Z\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "/players/:playerId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"José Cedrim\",\n    \"position\": \"Atacante\",\n    \"height\": 1.75,\n    \"weight\": 84.25,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/players/:playerId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"players",
+								":playerId"
+							],
+							"variable": [
+								{
+									"key": "playerId",
+									"value": "49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/players/:playerId",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"José Cedrim\",\n    \"position\": \"Atacante\",\n    \"height\": 1.75,\n    \"weight\": 84.25,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/players/:playerId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"players",
+										":playerId"
+									],
+									"variable": [
+										{
+											"key": "playerId",
+											"value": "49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "256"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"100-ytap5gRifmzDZ3Uk6tEDfXbrHgI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:57:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"playerId\": \"49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c\",\n    \"name\": \"José Cedrim\",\n    \"position\": \"Atacante\",\n    \"height\": 1.75,\n    \"weight\": 84.25,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n    \"createdAt\": \"2022-08-01T07:53:16.000Z\",\n    \"updatedAt\": \"2022-08-01 04:57:17\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "/players/:playerId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/players/:playerId",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"players",
+								":playerId"
+							],
+							"variable": [
+								{
+									"key": "playerId",
+									"value": "49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/players/:playerId",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/players/:playerId",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"players",
+										":playerId"
+									],
+									"variable": [
+										{
+											"key": "playerId",
+											"value": "49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"109-riq99uNPx7ri4ggRM81FbX+Mjsg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Aug 2022 04:58:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"playerId\": \"49c1acb8-4e83-4d6c-ac9f-6a01e4558f2c\",\n    \"name\": \"José Cedrim\",\n    \"position\": \"Atacante\",\n    \"height\": 1.75,\n    \"weight\": 84.25,\n    \"teamId\": \"e8c50de5-0fd6-11ed-9a6d-0242ac120003\",\n    \"createdAt\": \"2022-08-01T07:53:16.000Z\",\n    \"updatedAt\": \"2022-08-01T07:57:17.000Z\",\n    \"status\": false\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

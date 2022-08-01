@@ -1,21 +1,39 @@
 let teamService = require("../services/team.service")
+const Team = require("../ models/team.model");
 
 exports.listAll = (req, res) => {
-    res.json(teamService.listAll())  
+    teamService.listAll().then(
+        data => res.json(data)
+    )
 };
 
 exports.getById = (req, res) => {
-    res.json({"name":"cruzeiro"})
-} 
+    teamService.getById(req.params.teamId).then(
+        data => res.json(data)
+    )
+}
 
 exports.create = (req, res) => {
-    res.json({"name":"flamengo"})
-} 
+    teamService.create(
+        new Team(req.body)
+    ).then(
+        data => res.json(data)
+    )
+}
 
 exports.edit = (req, res) => {
-    res.json({"name":"fluminese"})
-} 
+    teamService.edit(
+        req.params.teamId,
+        new Team(req.body)
+    ).then(
+        data => res.json(data)
+    )
+}
 
 exports.delete = (req, res) => {
-    res.json({"name":"sport"})
-} 
+    teamService.delete(
+        req.params.teamId
+    ).then(
+        data => res.json(data)
+    )
+}

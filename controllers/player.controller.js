@@ -1,21 +1,39 @@
+let playerService = require("../services/player.service")
+const Player = require("../ models/player.model");
+
 exports.listAll = (req, res) => {
-    res.json([
-        {"name":"Renan"}
-    ]);
+    playerService.listAll().then(
+        data => res.json(data)
+    )
 };
 
 exports.getById = (req, res) => {
-    res.json({"name":"Hulk"})
+    playerService.getById(req.params.playerId).then(
+        data => res.json(data)
+    )
 } 
 
 exports.create = (req, res) => {
-    res.json({"name":"Gabi gol"})
+    playerService.create(
+        new Player(req.body)
+    ).then(
+        data => res.json(data)
+    )
 } 
 
 exports.edit = (req, res) => {
-    res.json({"name":"José"})
+    playerService.edit(
+        req.params.playerId,
+        new Player(req.body)
+    ).then(
+        data => res.json(data)
+    )
 } 
 
 exports.delete = (req, res) => {
-    res.json({"name":"Fernando"})
+    playerService.delete(
+        req.params.playerId
+    ).then(
+        data => res.json(data)
+    )
 } 

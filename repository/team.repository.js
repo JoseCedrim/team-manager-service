@@ -1,107 +1,114 @@
-const sql = require("./db.js");
+const connection = require("./db.js");
 
 const TeamRepository = () => {}
 
 TeamRepository.listAll = () => {
-    let query = "SELECT * FROM team";
+    let query = "SELECT * FROM team WHERE status = true";
+
     return new Promise((resolve, reject) => {
-      sql.query(query, (err, res) => {
+      connection.query(query, (err, res) => {
         if (err) {
             console.log("error: ", err);
             reject(err);
             return;
         }
-       console.log(res)
-        resolve(JSON.parse(JSON.stringify(res)));
+
+        let response = JSON.parse(JSON.stringify(res));
+
+        resolve(response);
       })
     })
 }
 
-TeamRepository.getById = (teamId, result) => {
+TeamRepository.getById = teamId => {
     let query = "SELECT * FROM team WHERE teamId = ?";
 
     let parameters = [
       teamId
     ]
 
-    sql.query(query, parameters, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        connection.query(query, parameters, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
+            if (res.length) {
+                resolve(res[0]);
+            }
+        })
     })
 }
 
-TeamRepository.create = (newTeam, result) => {
+TeamRepository.create = (newTeam) => {
     let query = "INSERT INTO team SET ?";
 
-    sql.query(query, newTeam, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        connection.query(query, newTeam, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
+            if (res.affectedRows > 0) {
+                resolve(newTeam);
+            }
+        })
     })
 }
 
-TeamRepository.edit = (teamId, team, result) => {
-    let query = ```
+TeamRepository.edit = (teamId, team) => {
+    let query = `
         UPDATE team SET
             name = ?,
-            inagurationDate = ?,
+            inaugurationDate = ?,
             state = ?, 
             updatedAt = ?
-        WHERE id = ?
-    ```;
+        WHERE teamId = ?
+    `;
 
     let parameters = [
         team.name,
-        team.inagurationDate,
+        team.inaugurationDate,
         team.state,
-        team.updateAt,
+        team.updatedAt,
         teamId
     ]
 
-    sql.query(query, parameters, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        connection.query(query, parameters, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err)
+                return;
+            }
 
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+            if (res.affectedRows) {
+                resolve(team);
+            }
+        })
     })
 }
 
-TeamRepository.delete = (teamId, result) => {
-    let query = "DELETE FROM team WHERE teamId = ?";
+TeamRepository.delete = (teamId, team) => {
+    let query = "UPDATE team SET status = false WHERE teamId = ?";
 
     let parameters = [
         teamId
     ]
 
-    sql.query(query, parameters, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        connection.query(query, parameters, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
+            if (res.affectedRows) {
+                return resolve(team)
+            }
+        })
     })
 }
 

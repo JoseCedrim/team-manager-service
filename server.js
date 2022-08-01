@@ -1,7 +1,8 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 80;
+  port = process.env.PORT || 3000;
   app.listen(port);
+  app.use(express.json());
 
 var teamController = require('./controllers/team.controller');
 var playerController = require('./controllers/player.controller');

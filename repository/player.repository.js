@@ -2,66 +2,72 @@ const sql = require("./db.js");
 
 const PlayerRepository = () => {}
 
-PlayerRepository.listAll = (result) => {
-    let query = "SELECT * FROM player";
+PlayerRepository.listAll = () => {
+    let query = "SELECT * FROM player WHERE status = 1";
 
-    sql.query(query, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(null, err);
-            return;
-        }
+    return new Promise((resolve, reject) => {
+        sql.query(query, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
 
-        result(null, res);
+            resolve(res);
+        })
     })
 }
 
-PlayerRepository.getById = (playerId, result) => {
+PlayerRepository.getById = (playerId) => {
     let query = "SELECT * FROM player WHERE playerId = ?";
 
     let parameters = [
         playerId
     ]
 
-    sql.query(query, parameters, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        sql.query(query, parameters, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
+            if (res.length) {
+                resolve(res[0]);
+            }
+
+            resolve(null)
+        })
     })
 }
 
-PlayerRepository.create = (newPlayer, result) => {
-    let query = "INSERT INTO team SET ?";
+PlayerRepository.create = (newPlayer) => {
+    let query = "INSERT INTO player SET ?";
 
-    sql.query(query, newPlayer, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        sql.query(query, newPlayer, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
+            if (res.affectedRows) {
+                resolve(newPlayer);
+            }
+        })
     })
 }
 
-PlayerRepository.edit = (playerId, player, result) => {
-    let query = ```
+PlayerRepository.edit = (playerId, player) => {
+    let query = `
         UPDATE player SET
             name = ?,
             position = ?,
             height = ?, 
             weight = ?,
             updatedAt = ?
-        WHERE id = ?
-    ```;
+        WHERE playerId = ?
+    `;
 
     let parameters = [
         player.name,
@@ -72,37 +78,39 @@ PlayerRepository.edit = (playerId, player, result) => {
         playerId
     ]
 
-    sql.query(query, parameters, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        sql.query(query, parameters, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
 
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+            if (res.affectedRows) {
+                resolve(player);
+            }
+        })
     })
 }
 
-PlayerRepository.delete = (playerId, result) => {
-    let query = "DELETE FROM player WHERE playerId = ?";
+PlayerRepository.delete = (playerId, player) => {
+    let query = "UPDATE player SET status = 0 WHERE playerId = ?";
 
     let parameters = [
         playerId
     ]
 
-    sql.query(query, parameters, (err, res) => {
-        if (err) {
-          console.log("error: ", err);
-          result(err, null);
-          return;
-        }
-        if (res.length) {         
-          result(null, res[0]);
-          return;
-        }
+    return new Promise((resolve, reject) => {
+        sql.query(query, parameters, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                reject(err);
+                return;
+            }
+            if (res.affectedRows) {
+                resolve(player);
+            }
+        })
     })
 }
 
