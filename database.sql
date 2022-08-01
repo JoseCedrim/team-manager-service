@@ -7,7 +7,7 @@ SET NAMES utf8mb4;
 
 CREATE DATABASE IF NOT EXISTS player_manager_service;
 
-USE DATABASE player_manager_service;
+USE player_manager_service;
 
 DROP TABLE IF EXISTS `player`;
 
@@ -23,8 +23,6 @@ CREATE TABLE `player` (
   `status` tinyint NOT NULL,
   PRIMARY KEY (`playerId`),
   KEY `fk_player_team` (`teamId`),
-  INDEX(`teamId`),
-  INDEX(`status`),
   CONSTRAINT `fk_player_team` FOREIGN KEY (`teamId`) REFERENCES `team` (`teamId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -38,6 +36,5 @@ CREATE TABLE `team` (
   `createdAt` timestamp NOT NULL,
   `updatedAt` timestamp NOT NULL,
   `status` tinyint NOT NULL,
-  INDEX(`status`),
   PRIMARY KEY (`teamId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
